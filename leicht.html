@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Extrem Schwieriges Sudoku</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="site-name-container">
+            <h1 class="site-name">Sudoku Master</h1>
+            <p class="powered-by">Powered by Ines</p>
+        </div>
+        <div class="logo-container">
+            <div class="logo">
+                <div class="grid">
+                    <div class="cell">2</div>
+                    <div class="cell">1</div>
+                    <div class="cell"></div>
+                    <div class="cell"></div>
+                    <div class="cell">6</div>
+                    <div class="cell"></div>
+                    <div class="cell">9</div>
+                    <div class="cell"></div>
+                    <div class="cell">5</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <script src="logo.js"></script>
+
+    <div class="dropdown">
+        <div class="menu-icon">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="dropdown-content">
+            <a href="home.html">Home</a>
+            <a href="#section2">Spiel des Tages</a>
+            <a href="support.html">Support</a>
+        </div>
+    </div>
+
+    <h1>Leichtes Sudoku</h1>
+    <p>Füllen Sie das Sudoku-Rätsel aus und lösen Sie es.</p>
+    <table id="sudoku-grid"></table>
+    <button onclick="generateSudoku()">Neues Sudoku Generieren</button>
+
+    <body>
+        <div id="sudoku-grid"></div>
+          <button id="hint-button">Hinweis</button>
+        </div>
+      </body>
+
+
+    <script src="leicht.js"></script>
+    <script src="popup.js"></script>
+</body>
+</html>

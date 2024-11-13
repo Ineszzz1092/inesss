@@ -1,0 +1,449 @@
+/* Grundlayout für die gesamte Seite */
+body {
+    background-color: #2a2a2a;
+    color: #e3d7c5;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+header {
+    width: 100%;
+    display: flex;
+    justify-content: start; /* Inhalt nach links ausrichten */
+    align-items: center; /* Vertikal zentrieren */
+    padding: 20px;
+    position: fixed;
+    gap: 15px; /* Abstand zwischen Site-Name und Logo */
+    top: 0;
+    background-color: #1e1e1e;
+}
+
+/* Container für Site-Name und Powered by */
+.site-name-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: 15px;
+}
+
+/* Webseiten-Name */
+.site-name {
+    font-size: 30px;
+    color: #e3d7c5;
+    margin: 0;
+    letter-spacing: 2px;
+}
+
+/* Stil für "Powered by" */
+.powered-by {
+    font-size: 12px;
+    color: #b0b0b0;
+    margin: 4px 0 0;
+    font-style: italic;
+}
+
+/* Logo-Container */
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+/* Sudoku-Logo */
+.logo {
+    position: relative;
+    display: inline-block;
+}
+
+/* Raster für das Sudoku */
+.logo .grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 1px;
+    border: 0;
+    background-color: #e3d7c5; /* Hintergrund für das Raster */
+}
+
+/* Zellen im Sudoku-Raster */
+.logo .cell {
+    width: 25px;
+    height: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: bold;
+    color: #e0e0e0;
+    background-color: #1e1e1e;
+}
+
+/* Rahmenlinien für die Animation */
+.border-top, .border-right, .border-bottom, .border-left {
+    position: absolute;
+    background-color: #e3d7c5; /* Klar sichtbare Farbe */
+    transition: width 0.3s ease, height 0.3s ease;
+    width: 0;
+    height: 0;
+}
+
+/* Positionen der Linien */
+.border-top {
+    top: 0;
+    left: 0;
+    height: 2px;
+}
+
+.border-right {
+    top: 0;
+    right: 0;
+    width: 2px;
+}
+
+.border-bottom {
+    bottom: 0;
+    right: 0;
+    height: 2px;
+}
+
+.border-left {
+    bottom: 0;
+    left: 0;
+    width: 2px;
+}
+
+.dropdown-container {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+
+/* Dropdown-Container */
+.dropdown {
+    position: absolute;
+    top: 45px;
+    right: 20px;
+}
+
+/* Menü-Symbol (drei Balken) */
+.menu-icon {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 25px;
+}
+
+.menu-icon span {
+    display: block;
+    height: 3px;
+    background-color: #e3d7c5;
+    border-radius: 5px;
+}
+
+/* Dropdown-Inhalt, standardmäßig ausgeblendet */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: #e3d7c5;
+    min-width: 160px;
+    box-shadow:  #a79e90;
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+/* Anzeige des Dropdown-Inhalts bei Hover über den Container */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+
+h1 {
+    color: #e3d7c5;
+    margin-top: 20px;
+}
+
+p {
+    color: #a79e90;
+}
+
+table {
+    margin: 20px auto;
+    border-collapse: collapse;
+    background-color: #fff;
+    color: #1e1e1e;
+}
+
+td {
+    width: 60px;
+    height: 60px;
+    border: 1px solid #333;
+    text-align: center;
+    font-size: 18px;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Styling für 3x3-Unterblöcke */
+td:nth-child(3n+1) {
+    border-left: 2px solid #333;
+}
+
+td:nth-child(3n) {
+    border-right: 2px solid #333;
+}
+
+tr:nth-child(3n+1) td {
+    border-top: 2px solid #333;
+}
+
+tr:nth-child(3n) td {
+    border-bottom: 2px solid #333;
+}
+
+input {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    border: none;
+    font-size: 18px;
+    box-sizing: border-box;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    margin-top: 10px;
+    cursor: pointer;
+    background-color: #e3d7c5;
+    color: black;
+    border: none;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #a79e90;
+}
+
+.notes-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    font-size: 0.8em; /* Kleinere Schriftgröße für Notizen */
+    pointer-events: none; /* Keine Interaktion mit Notizen */
+    color: #888;
+    padding: 2px; /* Randabstand, um Notizen innerhalb der Zelle zu halten */
+    box-sizing: border-box; /* Bezieht Padding in die Gesamtgröße mit ein */
+}
+
+.note {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Positionierung der Notizen in einer 3x3-Anordnung */
+.note-1 { grid-area: 1 / 1; }
+.note-2 { grid-area: 1 / 2; }
+.note-3 { grid-area: 1 / 3; }
+.note-4 { grid-area: 2 / 1; }
+.note-5 { grid-area: 2 / 2; }
+.note-6 { grid-area: 2 / 3; }
+.note-7 { grid-area: 3 / 1; }
+.note-8 { grid-area: 3 / 2; }
+.note-9 { grid-area: 3 / 3; }
+
+.hint-button {
+    display: block;
+    margin: 10px auto;
+}
+
+/* Popup-Container */
+#popup-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Halbtransparentes Overlay */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+/* Popup-Inhalt */
+#popup-content {
+    position: relative;
+    background-color: #fff;
+    padding: 20px;
+    width: 300px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Schließen-Button (X) */
+#close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 20px;
+    color: #888;
+}
+
+
+/* Button für neues Sudoku */
+#new-sudoku-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#new-sudoku-button:hover {
+    background-color: #45a049;
+}
+
+/* Optimierung für große Bildschirme (Desktops) */
+@media (min-width: 1024px) {
+    #sudoku-grid {
+        max-width: 600px;
+    }
+    #note-button, #hint-button {
+        font-size: 1em;
+    }
+    .logo-container {
+        width: 90px;
+        height: 190px;
+    }
+    .logo .cell {
+        width: 30px;
+        height: 30px;
+        font-size: 18px;
+    }
+}
+
+/* Anpassung für mittlere Bildschirme (Tablets) */
+@media (max-width: 768px) {
+    /* Anpassungen für Tablets und kleinere Bildschirme (max-width: 768px) */
+    body {
+        font-size: 0.9rem;
+        padding: 0 10px;
+    }
+
+    header {
+        padding: 10px;
+        justify-content: center; /* Header-Inhalte zentrieren */
+    }
+
+    /* Schriftgröße und Abstand für den Seitenname und die Überschrift verringern */
+    .site-name {
+        font-size: 24px;
+    }
+     /* Logo-Container und Sudoku-Logo verkleinern */
+     .logo-container {
+        width: 80px;
+        height: 80px;
+    }
+    .logo .cell {
+        width: 20px;
+        height: 20px;
+        font-size: 14px;
+    }
+
+    #sudoku-grid {
+        width: 90%;          /* Breite auf 90% des Eltern-Containers setzen */
+    aspect-ratio: 1 / 1; /* Seitenverhältnis 1:1 erzwingen, damit das Raster quadratisch bleibt */
+    max-width: 600px;    /* Optional: maximale Breite für größere Bildschirme */
+    border-collapse: collapse;
+    table-layout: fixed;
+    }
+    #note-button, #hint-button {
+        font-size: 0.9em;
+    }
+}
+
+/* Optimierung für kleine Bildschirme (Smartphones) */
+@media (max-width: 480px) {
+    header {
+        padding: 8px;
+        justify-content: center;
+    }
+
+    .site-name {
+        font-size: 20px;
+        margin-left: 0;
+    }
+
+    /* Dropdown-Inhalt und Menü-Symbol verkleinern */
+    .dropdown-content a {
+        padding: 10px 12px;
+        font-size: 0.85rem;
+    }
+
+    .menu-icon {
+        width: 25px;
+        height: 20px;
+    }
+    .menu-icon span {
+        height: 2px;
+    }
+     /* Sudoku-Grid-Layout für kleine Bildschirme */
+     .logo .cell {
+        width: 18px;
+        height: 18px;
+        font-size: 12px;
+    }
+
+    #sudoku-grid {
+        width: 90%;
+        padding-top: 90%; /* Höhe proportional zur Breite setzen */
+        position: relative;
+    }
+    
+    #sudoku-grid table {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    #note-button, #hint-button {
+        font-size: 0.8em;
+        padding: 8px 16px;
+    }
+}

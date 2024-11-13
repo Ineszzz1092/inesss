@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support</title>
+    <link rel="stylesheet" href="support.css">
+</head>
+<body>
+
+    <header>
+        <div class="site-name-container">
+            <h1 class="site-name">Sudoku Master</h1>
+            <p class="powered-by">Powered by Ines</p>
+        </div>
+        <div class="logo-container">
+            <div class="logo">
+                <div class="grid">
+                    <div class="cell">2</div>
+                    <div class="cell">1</div>
+                    <div class="cell"></div>
+                    <div class="cell"></div>
+                    <div class="cell">6</div>
+                    <div class="cell"></div>
+                    <div class="cell">9</div>
+                    <div class="cell"></div>
+                    <div class="cell">5</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <script src="logo.js"></script>
+
+    <div class="dropdown">
+        <div class="menu-icon">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="dropdown-content">
+            <a href="home.html">Home</a>
+            <a href="#section2">Spiel des Tages</a>
+            <a href="support.html">Support</a>
+        </div>
+    </div>
+
+<!-- Support-Formular -->
+
+<section class="contact-info">
+    <h2>Supportanfrage</h2>
+    <p>Falls Sie Verbesserungsvorschläage oder Probleme haben bzw. Unterstützung benötigen, können Sie uns jederzeit kontaktieren.</p>
+</section>
+
+<!-- Support-Formular -->
+<section class="contact-form">
+    <h2>Support-Anfrage</h2>
+    <form action="support.php" method="POST">
+        <label for="email">Ihre E-Mail-Adresse:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="message">Nachricht:</label>
+        <textarea id="message" name="message" rows="4" required></textarea>
+
+        <button type="submit" class="support-button">Senden</button>
+    </form>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="footer-content">
+        <p>© 2024 Sudoku Master. Alle Rechte vorbehalten.</p>
+    </div>
+</footer>
+
+</body>
+</html>

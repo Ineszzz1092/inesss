@@ -1,0 +1,341 @@
+/* Grundlayout für die gesamte Seite */
+body {
+    background-color: #2a2a2a;
+    color: #e3d7c5;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+header {
+    width: 100%;
+    display: flex;
+    justify-content: start; /* Inhalt nach links ausrichten */
+    align-items: center; /* Vertikal zentrieren */
+    padding: 20px;
+    position: fixed;
+    gap: 15px; /* Abstand zwischen Site-Name und Logo */
+    top: 0;
+    background-color: #1e1e1e;
+}
+
+/* Container für Site-Name und Powered by */
+.site-name-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: 15px;
+}
+
+/* Webseiten-Name */
+.site-name {
+    font-size: 30px;
+    color: #e3d7c5;
+    margin: 0;
+    letter-spacing: 2px;
+}
+
+/* Stil für "Powered by" */
+.powered-by {
+    font-size: 12px;
+    color: #b0b0b0;
+    margin: 4px 0 0;
+    font-style: italic;
+}
+
+/* Logo-Container */
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+/* Sudoku-Logo */
+.logo {
+    position: relative;
+    display: inline-block;
+}
+
+/* Raster für das Sudoku */
+.logo .grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 1px;
+    border: 0;
+    background-color: #e3d7c5; /* Hintergrund für das Raster */
+}
+
+/* Zellen im Sudoku-Raster */
+.logo .cell {
+    width: 25px;
+    height: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: bold;
+    color: #e0e0e0;
+    background-color: #1e1e1e;
+}
+
+/* Rahmenlinien für die Animation */
+.border-top, .border-right, .border-bottom, .border-left {
+    position: absolute;
+    background-color: #e3d7c5; /* Klar sichtbare Farbe */
+    transition: width 0.3s ease, height 0.3s ease;
+    width: 0;
+    height: 0;
+}
+
+/* Positionen der Linien */
+.border-top {
+    top: 0;
+    left: 0;
+    height: 2px;
+}
+
+.border-right {
+    top: 0;
+    right: 0;
+    width: 2px;
+}
+
+.border-bottom {
+    bottom: 0;
+    right: 0;
+    height: 2px;
+}
+
+.border-left {
+    bottom: 0;
+    left: 0;
+    width: 2px;
+}
+
+/* Dropdown-Container */
+.dropdown {
+    position: absolute;
+    top: 45px;
+    right: 20px;
+}
+
+/* Menü-Symbol (drei Balken) */
+.menu-icon {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 25px;
+}
+
+.menu-icon span {
+    display: block;
+    height: 3px;
+    background-color: #e3d7c5;
+    border-radius: 5px;
+}
+
+/* Dropdown-Inhalt, standardmäßig ausgeblendet */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: #e3d7c5;
+    min-width: 160px;
+    box-shadow:  #a79e90;
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+/* Anzeige des Dropdown-Inhalts bei Hover über den Container */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+
+/* Stil für die Überschrift */
+h2 {
+    color: #e0e0e0;
+    font-size: 40px;
+    font-weight: bold;
+    margin-top: 100px; /* Abstand zur Kopfzeile */
+    margin-bottom: 40px;
+    text-align: Left;
+}
+
+.button-container {
+    display: flex; /* Setzt die Buttons in eine horizontale Reihe */
+    gap: 15px; /* Abstand zwischen den Buttons */
+}
+
+.button-difficulty {
+    background-color: #2a2a2a;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 1rem;
+    color: #e3d7c5;
+    position: relative;
+    text-decoration: none;
+}
+
+
+.button-difficulty::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background-color: #e3d7c5;
+    transition: width 0.3s ease;
+}
+
+.button-difficulty:hover::after {
+    width: 100%;
+}
+
+/* Support-Button Container, am Seitenende ausgerichtet */
+.support-button-container {
+    position: fixed;
+    bottom: 20px;
+    width: 100%;
+    text-align: center;
+}
+
+/* Support Button-Styling */
+.button.support.contact-btn {
+    display: inline-block;
+    background-color: #2a2a2a;
+    color: #e3d7c5;
+    padding: 0.5rem 1rem;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    border-radius: 5px;
+}
+
+/* Hover-Effekt für den Support-Button */
+.button.support.contact-btn:hover {
+    background-color: #e3d7c5;
+    color: #2a2a2a;
+}
+
+/* Anpassungen für Tablets und kleinere Bildschirme (max-width: 768px) */
+@media (max-width: 768px) {
+    /* Grundlayout: Schriftgröße und Abstände reduzieren */
+    body {
+        font-size: 0.9rem;
+        padding: 0 10px;
+    }
+
+    header {
+        padding: 10px;
+        justify-content: center; /* Header-Inhalte zentrieren */
+    }
+
+    /* Schriftgröße und Abstand für den Seitenname und die Überschrift verringern */
+    .site-name {
+        font-size: 24px;
+    }
+
+    h2 {
+        font-size: 1.8rem;
+        margin-top: 60px; /* Weniger Abstand zur Kopfzeile */
+        margin-bottom: 30px;
+        text-align: center;
+    }
+
+    /* Button-Container für kleinere Bildschirme */
+    .button-container {
+        flex-direction: column; /* Buttons untereinander anordnen */
+        gap: 10px;
+    }
+
+    /* Logo-Container und Sudoku-Logo verkleinern */
+    .logo-container {
+        width: 80px;
+        height: 80px;
+    }
+    .logo .cell {
+        width: 20px;
+        height: 20px;
+        font-size: 14px;
+    }
+
+    /* Support-Button anpassen */
+    .support-button-container {
+        bottom: 10px;
+    }
+    .button.support.contact-btn {
+        font-size: 0.9rem;
+        padding: 0.4rem 0.8rem;
+    }
+}
+
+/* Für sehr kleine Bildschirme, z. B. Smartphones im Hochformat (max-width: 480px) */
+@media (max-width: 480px) {
+    /* Header und Seitenname für mobile Ansicht optimieren */
+    header {
+        padding: 8px;
+        justify-content: center;
+    }
+
+    .site-name {
+        font-size: 20px;
+        margin-left: 0;
+    }
+
+    /* Dropdown-Inhalt und Menü-Symbol verkleinern */
+    .dropdown-content a {
+        padding: 10px 12px;
+        font-size: 0.85rem;
+    }
+
+    .menu-icon {
+        width: 25px;
+        height: 20px;
+    }
+    .menu-icon span {
+        height: 2px;
+    }
+
+    /* Sudoku-Grid-Layout für kleine Bildschirme */
+    .logo .cell {
+        width: 18px;
+        height: 18px;
+        font-size: 12px;
+    }
+
+    /* Kontakt- und Support-Bereich */
+    .contact-info, .contact-form {
+        width: 100%;
+        padding: 1rem;
+    }
+
+    .contact-form input, .contact-form textarea {
+        width: 100%;
+        max-width: 100%;
+        font-size: 0.9rem;
+    }
+
+    .footer-content p {
+        font-size: 0.8rem;
+    }
+}
